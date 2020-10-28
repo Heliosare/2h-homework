@@ -1,9 +1,26 @@
+<h3>New Ticket</h3>
 <form [formGroup]="newTicketForm" (ngSubmit)="onSubmit(newTicketForm.value)">
     <div>
         <label for="description">
             Description
         </label>
         <input id="description" type="text" formControlName="description">
+
+        <div>
+            <mat-checkbox class="example-margin" 
+                (change)="setComplete($event.checked)">
+                Completed
+            </mat-checkbox>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Assigned to</mat-label>
+            <mat-select [(value)]="selectedUser">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let user of users$ | async" [value]="user.id">
+                    {{user.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     <button class="button" type="submit">Create new ticket</button>
 </form>

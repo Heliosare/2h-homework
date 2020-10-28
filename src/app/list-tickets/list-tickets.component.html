@@ -1,9 +1,11 @@
+<h3>Tickets List</h3>
 <ul>
     <li *ngFor="let ticket of tickets$ | async">
         Ticket: {{ ticket.id }}, {{ ticket.description }}
         <p>
             Assignee user : {{ findUserAssigned(ticket.assigneeId) }}
         </p>
+        Completed : {{ ticket.completed }}
         <button routerLink="/detail-ticket/{{ticket.id}}">More Details</button>
     </li>
 </ul>

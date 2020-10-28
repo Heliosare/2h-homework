@@ -53,11 +53,11 @@ export class BackendService {
         return of(this.findUserById(id)).pipe(delay(randomDelay()));
     }
 
-    public newTicket(payload: { description: string }): Observable<Ticket> {
+    public newTicket(payload: Ticket): Observable<Ticket> {
         const newTicket: Ticket = {
             id: ++this.lastId,
-            completed: false,
-            assigneeId: null,
+            completed: payload.completed,
+            assigneeId: payload.assigneeId,
             description: payload.description
         };
 

@@ -1,7 +1,10 @@
 <ul>
     <li *ngFor="let ticket of tickets$ | async">
         Ticket: {{ ticket.id }}, {{ ticket.description }}
-        <button routerLink="/detail-ticket/{{ticket.id}}" >More Details</button>
+        <p>
+            Assignee user : {{ findUserAssigned(ticket.assigneeId) }}
+        </p>
+        <button routerLink="/detail-ticket/{{ticket.id}}">More Details</button>
     </li>
 </ul>
 <app-new-ticket></app-new-ticket>

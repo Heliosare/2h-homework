@@ -70,9 +70,7 @@ export class BackendService {
     public assign(ticketId: number, userId: number): Observable<Ticket> {
         const user = this.findUserById(+userId);
         const foundTicket = this.findTicketById(+ticketId);
-        console.log({ticketId, userId})
         if (foundTicket && user) {
-            console.log({foundTicket, user})
             return of(foundTicket).pipe(
                 delay(randomDelay()),
                 tap((ticket: Ticket) => {

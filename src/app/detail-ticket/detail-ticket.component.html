@@ -8,6 +8,9 @@ Ticket: {{ (ticket$ | async)?.id }}, {{ (ticket$ | async)?.description }}
         </mat-option>
     </mat-select>
 </mat-form-field>
-
+<mat-checkbox class="example-margin" 
+(change)="setComplete($event.checked)">
+Completed
+</mat-checkbox>
 Assignee user : {{ (user$ | async)?.name  }}
 <button routerLink="/">Back</button>

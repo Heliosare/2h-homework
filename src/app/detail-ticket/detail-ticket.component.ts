@@ -41,8 +41,14 @@ export class DetailTicketComponent implements OnInit {
   }
 
   selectionUserChange(data) {
-    const { id, assigneeId } : Ticket = this.ticket;
+    const { id } : Ticket = this.ticket;
     this.backendService.assign(id , data.value).subscribe();
+    this.router.navigate(['/'])
+  }
+
+  setComplete(completed) {
+    const { id } : Ticket = this.ticket;
+    this.backendService.complete(id , completed).subscribe();
     this.router.navigate(['/'])
   }
 }

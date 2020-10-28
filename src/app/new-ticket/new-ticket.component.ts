@@ -31,7 +31,6 @@ export class NewTicketComponent implements OnInit {
 
   setComplete(completed) {
     this.completed = completed;
-    console.log('event', completed);
   }
 
   onSubmit(ticketData) {
@@ -40,17 +39,7 @@ export class NewTicketComponent implements OnInit {
       assigneeId: this.selectedUser,
       completed: this.completed,
     };
-    this.subscribeTicket = this.backendService.newTicket(ticketDataWithAssigneeId).subscribe(
-      (data) => {
-        console.log('onSubmit data', {data, ticketDataWithAssigneeId})
-      },
-      (error) => {
-        console.log('error new ticket form', error)
-      },
-      () => {
-        console.log('complete')
-      }
-    );
+    this.subscribeTicket = this.backendService.newTicket(ticketDataWithAssigneeId).subscribe();
   }
 
   ngOnDestroy() {

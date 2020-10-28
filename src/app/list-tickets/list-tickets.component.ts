@@ -21,7 +21,6 @@ export class ListTicketsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.users$.subscribe((users) => {
       this.users = users;
-      console.log('users', users);
     })
   }
 

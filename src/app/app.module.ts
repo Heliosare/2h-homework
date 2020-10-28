@@ -1,10 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { BackendService } from './backend.service';
-import { ListTicketsComponent } from './list-tickets/list-tickets.component';
-import { RouterModule, Routes } from '@angular/router';
 import { DetailTicketComponent } from './detail-ticket/detail-ticket.component';
+import { NewTicketComponent } from './new-ticket/new-ticket.component';
+import { ListTicketsComponent } from './list-tickets/list-tickets.component';
 
 const appRoutes: Routes = [
     { path: 'list-tickets', component: ListTicketsComponent },
@@ -13,9 +16,16 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-    declarations: [AppComponent, ListTicketsComponent, DetailTicketComponent],
+    declarations: [
+        AppComponent,
+        DetailTicketComponent,
+        ListTicketsComponent,
+        NewTicketComponent
+    ],
     imports: [
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(appRoutes),
     ],
     providers: [BackendService],
